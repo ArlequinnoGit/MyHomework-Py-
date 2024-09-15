@@ -14,5 +14,5 @@ print(example[8:15])
 print(example[::-1])
 
 #6th
-print(example[::2])
+print(example[1::2])
 
