@@ -9,8 +9,7 @@ print(my_dict)
 # Выведите на экран одно значение по существующему ключу;
 print(my_dict['Common'])
 # Одно по отсутствующему из словаря my_dict без ошибки.
-my_dict ['Mythical'] = 6
-print(my_dict['Mythical'])
+print(my_dict.get('Mythical'))
 
 
 #Добавьте ещё две произвольные пары того же формата в словарь my_dict.
