@@ -1,19 +1,20 @@
 def get_multiplied_digits(number):
-    # Преобразуем число в строку
+    # Преобразуем число в строку для удобства работы с отдельными цифрами
     str_number = str(number)
 
-    # Если длина строки больше 1
-    if len(str_number) > 1:
-        # Первая цифра
-        first = int(str_number[0])
-        # Остальные цифры
-        remaining_digits = int(str_number[1:])
-        # Возвращаем произведение первой цифры и оставшихся
-        return first * get_multiplied_digits(remaining_digits)
+    if len(str_number) == 1:
+        # Если осталось одно число, проверяем, не является ли оно нулём
+        digit = int(str_number)
+        return digit if digit != 0 else 1
 
-    # Если длина строки равна 1
-    elif len(str_number) == 1:
-        # Возвращаем первую цифру
-        return int(str_number)
+    # Берем первую цифру числа
+    first = int(str_number[0])
 
-print(get_multiplied_digits(40203))
+    if first == 0:
+        # Пропускаем нуль и продолжаем обработку оставшихся цифр
+        return get_multiplied_digits(int(str_number[1:]))
+    else:
+        # Рекурсивный вызов функции для оставшихся цифр
+        return first * get_multiplied_digits(int(str_number[1:]))
+
+print(get_multiplied_digits(402030))
